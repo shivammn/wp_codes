@@ -1,0 +1,16 @@
+jQuery(document).on('gform_post_render', function(event, form_id, current_page){
+	if(form_id == 1){
+		var first_name, last_name;
+		console.log(current_page);
+		if(current_page == 2){
+			//console.log(current_page);
+			first_name = jQuery('#input_1_6_3').val();
+			last_name = jQuery('#input_1_6_6').val();
+			
+		}
+		if(current_page == 3){
+			jQuery('#input_1_49_3').val(jQuery('#input_1_6_3').val());
+			jQuery('#input_1_49_6').val(jQuery('#input_1_6_6').val());
+		}
+	}
+});

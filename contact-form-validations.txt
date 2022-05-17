@@ -1,0 +1,44 @@
+/** Contact Form Validation Start **/
+jQuery('body').on('input','#input_1_1',function(){
+	//jQuery(this).closest('.ginput_container').removeClass('right_entry_cls');
+	var input_value_field = jQuery(this).val();
+	var length_min_val = input_value_field.length;
+	if(length_min_val >= 3){
+		jQuery(this).closest('.ginput_container').addClass('right_entry_cls');
+	}else {
+		jQuery(this).closest('.ginput_container').removeClass('right_entry_cls');
+	}
+});
+
+jQuery('body').on('input','#input_1_3',function(){
+	//jQuery(this).closest('.ginput_container').removeClass('right_entry_cls');
+	var email_value_field = jQuery(this).val();
+	if (!ValidateEmail(email_value_field)) {
+		jQuery(this).closest('.ginput_container').removeClass('right_entry_cls');
+	}else {
+		jQuery(this).closest('.ginput_container').addClass('right_entry_cls');
+	}
+});
+function ValidateEmail(email) {
+	var expr = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+	return expr.test(email);
+}
+
+jQuery('body').on('keyup','#input_1_4',function(){
+	//jQuery(this).closest('.ginput_container').removeClass('right_entry_cls');
+	var phone_value_field = jQuery(this).val();
+	phone_value_field = phone_value_field.replace('(','');
+	phone_value_field = phone_value_field.replace(')','');
+	phone_value_field = phone_value_field.replace('-','');
+	phone_value_field = phone_value_field.replace('_','');
+	phone_value_field = phone_value_field.replace(' ','');
+	var length_min_val_phone = phone_value_field.length;
+	//console.log(length_min_val_phone);
+	//console.log(phone_value_field);
+	if(length_min_val_phone == 10){
+		jQuery(this).closest('.ginput_container').addClass('right_entry_cls');
+	}else{
+		jQuery(this).closest('.ginput_container').removeClass('right_entry_cls');
+	}
+});
+/** Contact Form Validation Ends **/
